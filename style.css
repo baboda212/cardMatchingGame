@@ -1,0 +1,278 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(119, 217, 241, 0.671); 
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 646px;
+    height: 100%;
+}
+
+.board h1{
+    color: #fff;
+}
+
+.table {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    font-size: 17px;
+    color: #FFF;
+    margin-bottom: 20px;
+}
+
+.table > * {
+    display: flex;
+    align-items: flex-end;
+}
+
+.table-time {
+    justify-content: flex-start;
+    width: 45px;
+    margin-right: 250px;
+}
+
+.table-stage {
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+#player-stage {
+    padding-left: 3px;
+}
+
+.table-time::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 2px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.table-time::before {
+    margin-right: 3px;
+    background-image: url('./images/time.png');
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 646px;
+    border-radius: 5px;
+    background-color: rgba(119, 217, 241, 0.671);
+}
+
+.game::after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+}
+
+.game_board {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    position: relative;
+    width: 16.66666666666668%;
+    height: 20.5%;
+}
+
+.card_back,
+.card_front {
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    border-radius: 15px;
+    background-clip: content-box;
+    background-color: #FFF;
+    background-repeat: no-repeat;
+    background-position: center center;
+    backface-visibility: hidden;
+    transition: transform 500ms;
+}
+
+.card_front {
+    transform: rotateY(-180deg);
+    background-size: 100% auto;
+}
+
+.card_back {
+    transform: rotateY(0deg);
+    background-image: url('./images/back.png');
+    background-size: 100% auto;
+}
+
+.stage-clear {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;  
+    width: 230px;
+    height: 230px;
+    background-image: url('./images/clear.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.modal {
+    display: none;
+    letter-spacing: -0.04em;
+}
+
+.modal-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal_content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: auto;
+    padding: 30px;
+    z-index: 9999;
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+
+.modal_content-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.modal_content-title--result {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.modal_content-title--stage {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.modal_content-title--desc {
+    font-size: 15px;
+}
+
+.modal_content-close-button {
+    width: 100%;
+    font-size: 14px;
+}
+
+.white-button {
+    width: 25%;
+    padding: 5px;
+}
+
+.show {
+    display: block;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+    .menu_nav {
+        font-size: 21px;
+    }
+
+    .menu_nav-time,
+    .menu_nav-home {
+        width: 55px;
+    }
+
+    .menu_nav-time::before,
+    .menu_nav-home--button {
+        width: 24px;
+        height: 24px;
+    }
+
+    .menu_nav-time::before {
+        margin-right: 5px;
+    }
+
+    .card_back,
+    .card_front {
+        border: 3px solid #000;
+        border-radius: 6px;
+    }
+
+    .stage-clear {
+        width: 330px;
+        height: 330px;
+    }
+
+    .modal_content {
+        width: 50%;
+    }
+    
+    .modal_content-title--result {
+        margin-bottom: 15px;
+    }
+    
+    .modal_content-title--stage {
+        font-size: 21px;
+        margin-bottom: 15px;
+    }
+
+    .modal_content-title--desc {
+        font-size: 18px;
+    }
+    
+    .modal_content-close-button {
+        font-size: 17px;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    .card_back,
+    .card_front {
+        border: 4px solid #000;
+        border-radius: 7px;
+    }
+
+    .modal_content {
+        width: 20%;
+    }
+}
